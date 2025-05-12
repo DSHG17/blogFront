@@ -15,3 +15,20 @@ const apiClient = axios.create({
         }
     }
   }
+
+  export const getCommentsByPublication = async (publicationId) => {
+    try {
+      return await apiClient.get(`/commentary/getCommentary/${publicationId}`);
+    } catch (e) {
+      return { error: e.message };
+    }
+  };
+  
+  export const createComment = async (data) => {
+    try {
+      return await apiClient.post("/commentary/postCommentary", data);
+    } catch (e) {
+      return { error: e.message };
+    }
+  };
+  
