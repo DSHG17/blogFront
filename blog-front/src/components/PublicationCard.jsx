@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 export const PublicationCard = ({ publication }) => {
   if (!publication) return null;
-
+  console.log(publication._id)
+  
   return (
     <div className="bg-[#FFFFF0] border-[4px] border-black rounded-2xl w-full max-w-sm mx-auto shadow-2xl font-sans text-black overflow-hidden transition-transform hover:scale-105 duration-300">
       
@@ -39,6 +40,7 @@ export const PublicationCard = ({ publication }) => {
           <p><strong>Autor:</strong> {publication.author}</p>
           <p><strong>Fecha:</strong> {new Date(publication.date).toLocaleDateString()}</p>
         </div>
+        
         <Link
           to={`/post/${publication._id}`}
           className="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition text-sm"
