@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSearchPublications } from "../shared/hooks/useSearchPublicactions";
-import { PublicationCard } from "./publicationCard";
+import { PublicationCard } from "./PublicationCard";
 
 const COURSE_TYPES = ["TICS", "TALLER", "TECNO"];
 

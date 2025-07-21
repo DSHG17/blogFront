@@ -14,7 +14,7 @@ export const useComments = (publicationId) => {
 
   const addComment = async (commentData) => {
     const res = await createComment({ ...commentData, publicationId });
-    if (!res.error) fetchComments(); // actualiza la lista
+    if (!res.error) fetchComments(); 
   };
 
   useEffect(() => {

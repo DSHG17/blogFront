@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from 'prop-types';
 
 export const CommentForm = ({ onSubmit }) => {
   const [name, setName] = useState("");
@@ -6,34 +7,38 @@ export const CommentForm = ({ onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!name.trim() || !content.trim()) return;
-
     onSubmit({ name, content });
     setName("");
     setContent("");
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 mt-6">
+    <form onSubmit={handleSubmit} className="space-y-4 text-black">
       <input
-        className="w-full p-2 border border-black rounded"
-        placeholder="Tu nombre"
+        type="text"
         value={name}
         onChange={(e) => setName(e.target.value)}
+        placeholder="Tu nombre"
+        required
+        className="w-full border border-gray-300 p-2 rounded text-black bg-white placeholder-gray-500"
       />
       <textarea
-        className="w-full p-2 border border-black rounded"
-        placeholder="Escribe tu comentario..."
-        rows={4}
         value={content}
         onChange={(e) => setContent(e.target.value)}
+        placeholder="Tu comentario"
+        required
+        className="w-full border border-gray-300 p-2 rounded text-black bg-white placeholder-gray-500"
       />
       <button
         type="submit"
-        className="bg-black text-white px-4 py-2 rounded hover:bg-gray-800"
+        className="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition"
       >
-        Comentar
+        Enviar Comentario
       </button>
     </form>
   );
+};
+
+CommentForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };
